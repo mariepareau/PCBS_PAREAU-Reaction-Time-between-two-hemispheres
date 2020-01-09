@@ -9,6 +9,20 @@ control.initialize(exp)
 screen_size = exp.screen.surface.get_size()
 user_device = exp.keyboard
 
+#stimulus
+circle_dist = 200
+circle_radius = 20
+left_circle = stimuli.Circle(circle_radius, position=[-circle_dist, 0])
+left_circle.preload()
+right_circle = stimuli.Circle(circle_radius, position=[circle_dist, 0])
+right_circle.preload()
+circle_displaytime = 100
+right_circle.present()
+left_circle.present()
+
+
+
+#fix cross
 fixcross = stimuli.FixCross(size=(15, 15), line_width = 3)
 fixcross.preload()
 Blankscreen = stimuli.BlankScreen()
@@ -19,15 +33,24 @@ for trial in range(10):
 	     exp.clock.wait(show_time)
 
 
-import pygame 
-screen = pygame.display, pygame.DOUBLEBUF)
-pygame.draw.circle(screen, RED, (400, 200), 50, 0)
-pygame.display.flip()
-pygame.image.save(screen, "circle-red.png")
+stimulus
 
 
 
 
-J'arrive à faire une croix de fixation sur expyriment. Et j'arrive à coder un cercle rouge sur
-pygame. je n'arrive pas à mettre les deux ensemble c'est à dire faire apparaitre le cercle dans expyriment
-est ce possible ? Ou dois je coder différemment mon cercle pour qu'il soit visible sur expyriment ?
+
+#####################
+block = expyriment.design.Block(name="Block 1")
+trial = expyriment.design.Trial()
+stim = expyriment.stimuli.TextLine(text="Hello World")
+stim.preload()
+trial.add_stimulus(stim)
+block.add_trial(trial)
+exp.add_block(block)
+
+expyriment.control.start()
+
+stim.present()
+exp.clock.wait(1000)
+
+expyriment.control.end()

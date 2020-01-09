@@ -13,6 +13,7 @@ Je vais coder les conditions ipsilatérales c'est-à-dire le sujet voit le stimu
 
 ### Importation des fonctions utiles pour l'expérimentation
 
+````
 import random
 import expyriment
 from expyriment import stimuli, design, control
@@ -22,27 +23,36 @@ exp = design.Experiment("Projet PCBS")
 control.initialize(exp)
 screen_size = exp.screen.surface.get_size()
 user_device = exp.keyboard
-
+````
 ### Création de la croix de fixation
 Le sujet doit fixer une croix de fixation tout au long de l'expérimentation.
 
 
 Je définis les paramètres de la croix de fixation :
-
+````
 fixcross = stimuli.FixCross(size=(15, 15), line_width = 3)
 fixcross.preload()
 Blankscreen = stimuli.BlankScreen()
+````
 
 Je fais apparaitre la croix :
 
+````
 for trial in range(10):
 	     show_time = random.randint(1000,2000)
 	     fixcross.present(update=True)
 	     exp.clock.wait(show_time)
+````
 
 ### Création du stimulus visuel
 Un stimulus visuel sera présenté à droite ou à gauche de la crois de fixation. Le sujet devra alors appuyer sur le "P" si l'image est apparu à droite et sur le "A" si l'image est apparu à gauche.
 
-import pygame
-pygame.init()
-screen = pygame.display.set_mode((H, W), pygame.DOUBLEBUF)
+````
+circle_dist = 200
+circle_radius = 20
+left_circle = stimuli.Circle(circle_radius, position=[-circle_dist, 0])
+left_circle.preload()
+right_circle = stimuli.Circle(circle_radius, position=[circle_dist, 0])
+right_circle.preload()
+circle_displaytime = 100
+````
