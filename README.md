@@ -120,3 +120,28 @@ block_one.add_trial(trial_six)
 exp.add_block(block_one)
 ````
 La même chose est réalisé pour le deuxième bloc avec une répartition des stimulus différente.
+
+### Temps de réaction
+
+Pour récupérer les temps de réaction avec les flèches droite et gauche du clavier :
+````
+        key, rt = exp.keyboard.wait([expyriment.misc.constants.K_LEFT,
+                                     expyriment.misc.constants.K_RIGHT])
+````
+Les données (numéro de bloc , de trial, la touche pressée et le temps de réaction sont enregistrés :
+````
+				exp.data.add([block.name, key, rt])
+````
+Le script complet est visualisable sur RT-Hemispheres-PCBS.py
+
+## Conclusion
+
+Avant ce cours mon expérience de programmation était égale à zéro. Je n'avais jamais travailler avec python et ne conceptualisais pas ce que c'était. Je ne savais pas utiliser la commande de mon ordinateur et tout le langage de programmation m'a toujours fait peur par la complexité apparente. Les exercices de bases du cours étaient difficiles pour moi et me prenais beaucoup de temps à réaliser.
+Ce cours m'a permis de commencer à appréhender les concepts de programmation et certaines logiques (comme les boucles for par exemple).
+Partant d'un niveau zéro, écrire ce code n'a pas été une chose facile. Il m'a d'abord fallu trouver par quoi commencer. J'ai regardé les scripts des exercices du cours portant sur le module expyriment et les temps de réaction.  Je me suis également inspiré du code d'une ancienne étudiante qui avait codé pour une tâche semblable (https://github.com/OndineS/Projet_PCBS).
+Le site https://docs.expyriment.org/Tutorial.html m'a également aidé à avoir un code de base clair avec lequel j'ai ensuite travaillé (notamment pour le design des blocs).
+
+En ce qui concerne les retours de l'UE :
+- Je trouve que cette matière est une matière essentielle que j'aurais aimé commencer en licence. Avoir des groupes de niveau pourrait être plus pertinent car il est un peu intimidant de commencer à coder et poser des questions plus que basiques à côté de personne maitrisant déjà la programmation. De plus, pour les confirmés cela ne devaient pas être très stimulant de travailler à côté de personnes comme moi.
+- Plus d'heures dans ce cours pourraient être également bien pour avoir le temps d'assimiler les concepts de bases avant de passer directement à la programmation d'un mini programme, ce qui me semblait insurmontable (sachant que cette année la semaine de remise à niveau était absente).
+- Le cours de data camp est un peu compliqué à gérer en même temps surtout si on apprend R sur data camp et python pendant PCBS. Peut-être serait-il intéressant de les mettre à deux semestres différents ou bien de les lier : cours de PCBS pour apprendre réellement à programmer et le cours de data camp en soutien pour faire des petits exercices basiques (comme une séance de TD en soutien au cours de PCBS).

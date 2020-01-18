@@ -43,10 +43,10 @@ trial_two = expyriment.design.Trial()
 stim = right_circle
 trial_two.add_stimulus(stim)
 trial_three = expyriment.design.Trial()
-stim = right_circle
+stim = left_circle
 trial_three.add_stimulus(stim)
 trial_four = expyriment.design.Trial()
-stim = left_circle
+stim = right_circle
 trial_four.add_stimulus(stim)
 trial_five = expyriment.design.Trial()
 stim = right_circle
@@ -70,8 +70,6 @@ for block in exp.blocks:
         key, rt = exp.keyboard.wait([expyriment.misc.constants.K_LEFT,
                                      expyriment.misc.constants.K_RIGHT])
         exp.data.add([block.name, trial.id, key, rt])
-
-expyriment.control.end()
 
 instruction2 = """Block 2 \n\
 Fixez la croix de fixation. \n\
@@ -122,9 +120,6 @@ expyriment.control.end()
 
 
 #fix cross
-fixcross = stimuli.FixCross(size=(15, 15), line_width = 3)
-fixcross.preload()
-Blankscreen = stimuli.BlankScreen()
 
 for trial in block.trials:
 	     show_time = random.randint(1000,2000)
