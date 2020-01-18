@@ -60,7 +60,7 @@ circle_displaytime = 100
 ### Création des instructions
 Il y aura deux instructions différentes pour les deux blocs différents : ipsilatéral et controlatéral.
 
-#### Instruction "Block Ipsilatéral"
+#### Instruction "Bloc Ipsilatéral"
 ````
 instruction = """ Block 1 \n\
 Fixez  la croix de fixation. \n\
@@ -68,7 +68,7 @@ Positionnez  votre index droit sur la flèche droite du clavier et votre index g
 Appuyez  avec la flèche droite quand le rond blanc apparait à droite et appuyez avec la flèche gauche quand il apparait à gauche. \n\
 Appuyez  sur Enter pour commencer."""
 ````
-#### Instruction "Block Controlatéral"
+#### Instruction "Bloc Controlatéral"
 ````
 instruction2 = """Block 2 \n\
 Fixez la croix de fixation. \n\
@@ -119,8 +119,37 @@ block_one.add_trial(trial_five)
 block_one.add_trial(trial_six)
 exp.add_block(block_one)
 ````
-La même chose est réalisé pour le deuxième bloc avec une répartition des stimulus différente.
+La même chose est réalisée pour le deuxième bloc avec une répartition des stimulus différente.
 
+````
+block_two = expyriment.design.Block(name="Controlatéral")
+trial_one = expyriment.design.Trial()
+stim = right_circle
+stim.preload()
+trial_one.add_stimulus(stim)
+trial_two = expyriment.design.Trial()
+stim = left_circle
+trial_two.add_stimulus(stim)
+trial_three = expyriment.design.Trial()
+stim = right_circle
+trial_three.add_stimulus(stim)
+trial_four = expyriment.design.Trial()
+stim = left_circle
+trial_four.add_stimulus(stim)
+trial_five = expyriment.design.Trial()
+stim = right_circle
+trial_five.add_stimulus(stim)
+trial_six = expyriment.design.Trial()
+stim = right_circle
+trial_six.add_stimulus(stim)
+block_two.add_trial(trial_one)
+block_two.add_trial(trial_two)
+block_two.add_trial(trial_three)
+block_two.add_trial(trial_four)
+block_two.add_trial(trial_five)
+block_two.add_trial(trial_six)
+exp.add_block(block_two)
+````
 ### Temps de réaction
 
 Pour récupérer les temps de réaction avec les flèches droite et gauche du clavier :
@@ -128,7 +157,7 @@ Pour récupérer les temps de réaction avec les flèches droite et gauche du cl
         key, rt = exp.keyboard.wait([expyriment.misc.constants.K_LEFT,
                                      expyriment.misc.constants.K_RIGHT])
 ````
-Les données (numéro de bloc , de trial, la touche pressée et le temps de réaction sont enregistrés :
+Les données (numéro de bloc , de trial, la touche pressée et le temps de réaction) sont enregistrés :
 ````
 				exp.data.add([block.name, key, rt])
 ````
@@ -143,7 +172,7 @@ for block in exp.blocks:
                                      expyriment.misc.constants.K_RIGHT])
         exp.data.add([block.name, trial.id, key, rt])
 
-				expyriment.control.end()
+expyriment.control.end()
 ````
 
 Le script complet est visualisable sur RT-Hemispheres-PCBS.py
