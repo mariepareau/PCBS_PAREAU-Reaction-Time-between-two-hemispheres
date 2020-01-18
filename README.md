@@ -132,6 +132,20 @@ Les données (numéro de bloc , de trial, la touche pressée et le temps de réa
 ````
 				exp.data.add([block.name, key, rt])
 ````
+
+````
+expyriment.control.start()
+
+for block in exp.blocks:
+    for trial in block.trials:
+        trial.stimuli[0].present()
+        key, rt = exp.keyboard.wait([expyriment.misc.constants.K_LEFT,
+                                     expyriment.misc.constants.K_RIGHT])
+        exp.data.add([block.name, trial.id, key, rt])
+
+				expyriment.control.end()
+````
+
 Le script complet est visualisable sur RT-Hemispheres-PCBS.py
 
 ## Conclusion
@@ -139,7 +153,7 @@ Le script complet est visualisable sur RT-Hemispheres-PCBS.py
 Avant ce cours mon expérience de programmation était égale à zéro. Je n'avais jamais travailler avec python et ne conceptualisais pas ce que c'était. Je ne savais pas utiliser la commande de mon ordinateur et tout le langage de programmation m'a toujours fait peur par la complexité apparente. Les exercices de bases du cours étaient difficiles pour moi et me prenais beaucoup de temps à réaliser.
 Ce cours m'a permis de commencer à appréhender les concepts de programmation et certaines logiques (comme les boucles for par exemple).
 Partant d'un niveau zéro, écrire ce code n'a pas été une chose facile. Il m'a d'abord fallu trouver par quoi commencer. J'ai regardé les scripts des exercices du cours portant sur le module expyriment et les temps de réaction.  Je me suis également inspiré du code d'une ancienne étudiante qui avait codé pour une tâche semblable (https://github.com/OndineS/Projet_PCBS).
-Le site https://docs.expyriment.org/Tutorial.html m'a également aidé à avoir un code de base clair avec lequel j'ai ensuite travaillé (notamment pour le design des blocs).
+Le site https://docs.expyriment.org/Tutorial.html m'a également aidé à avoir un code de base clair avec lequel j'ai ensuite travaillé (notamment pour le design des blocs). J'ai ainsi adapté ces codes à ma tâche en passant un long moment à comprendre la logique de chaque ligne de code puis en essayant de les modifier pour ma tâche. Après le moment de stress à l'idée de coder, il était assez ludique d'essayer de comprendre la structure du code et de le créer pour faire fonctionner mon expérience bien qu'elle soit très simple.
 
 En ce qui concerne les retours de l'UE :
 - Je trouve que cette matière est une matière essentielle que j'aurais aimé commencer en licence. Avoir des groupes de niveau pourrait être plus pertinent car il est un peu intimidant de commencer à coder et poser des questions plus que basiques à côté de personne maitrisant déjà la programmation. De plus, pour les confirmés cela ne devaient pas être très stimulant de travailler à côté de personnes comme moi.
