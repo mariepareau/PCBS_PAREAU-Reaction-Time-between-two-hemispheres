@@ -9,7 +9,7 @@ Il y aura donc quatre conditions :
 - le symbole apparait à droite et il doit répondre avec la main gauche : controlatéral
 J'ai décidé de réaliser deux blocs : un "Ipsilatéral" et un "Controlatéral".
 
-### Importation des fonctions utiles pour l'expérimentation
+## Importation des fonctions utiles pour l'expérimentation
 
 ````
 import random
@@ -22,7 +22,7 @@ control.initialize(exp)
 screen_size = exp.screen.surface.get_size()
 user_device = exp.keyboard
 ````
-### Création de la croix de fixation
+## Création de la croix de fixation
 Le sujet doit fixer une croix de fixation tout au long de l'expérimentation.
 Je définis les paramètres de la croix de fixation :
 ````
@@ -30,7 +30,7 @@ fixcross = stimuli.FixCross(size=(15, 15), line_width = 3)
 fixcross.preload()
 ````
 
-### Création du stimulus visuel
+## Création du stimulus visuel
 Un stimulus visuel sera présenté à droite ou à gauche de la crois de fixation. Le sujet devra alors appuyer sur la flèche droite ou gauche du clavier en fonction des conditions des blocs. Dans mon code, je détaille la taille du cercle, son positionnement et le nombre de présentation du stimulus (n). Il y a un cercle à droite et un à gauche.
 Je créé deux tableaux "expected..." (un pour chaque blocs) de taille n pour pouvoir sauvegarder pour chaque cercle sa position (gauche ou droite).
 
@@ -47,7 +47,7 @@ right_circle.preload()
 circle_displaytime = 100
 ````
 
-### Création des instructions
+## Création des instructions
 Il y aura deux instructions différentes pour les deux blocs différents : ipsilatéral et controlatéral.
 
 #### Instruction "Bloc Ipsilatéral"
@@ -67,7 +67,7 @@ Appuyez avec la flèche droite quand le rond blanc apparait à droite et appuyez
 Appuyer sur une des flèches pour commencer."""
 ````
 
-### Création de la fonction pour afficher le cercle à droite ou à gauche
+## Création de la fonction pour afficher le cercle à droite ou à gauche
 J'ai créé une fonction qui permet d'afficher soit le cercle à droite soit le cercle à gauche. Elle prend trois arguments : n (le nombre de trial), block (numéro du bloc associé), expected (le tableau dans lequel on sauvegarde la position des cercles). La fonction random.randint permet d'afficher de manière aléatoire des objets. Dans la fonction display_circle si le 0 est tiré au sort, alors c'est le cercle gauche qui est présenté sinon c'est le cercle droit.
 
 ````
@@ -96,7 +96,7 @@ stimuli.TextScreen("Condition Controlatérale", instruction2).present()
 exp.keyboard.wait()
 ````
 
-### Création des blocs
+## Création des blocs
 Il y a deux blocs pour les deux conditions "Ipsilatérale" et "Controlatérale". Chaque bloc contient 10 trials. L'ordre de présentation des stimulus (si le cercle apparait à droite ou à gauche selon les trials) est choisi de manière aléatoire grâce à la fonction display_circle.
 
 #### Bloc Ipsilatéral
@@ -113,7 +113,7 @@ display_circle(n, block_two)
 exp.add_block(block_two)
 ````
 
-### expérience
+## Expérience
 ````
 expyriment.control.start()
 ````
