@@ -59,19 +59,19 @@ Appuyez avec la flèche droite quand le rond blanc apparait à droite et appuyez
 Appuyer sur une des flèches pour commencer."""
 
 
-## Block Ipsilatéral
+## Bloc Ipsilatéral
 block_one = expyriment.design.Block(name="Ipsilatéral")
 display_circle(n, block_one, expected_block_one)
 exp.add_block(block_one)
 
-## Block Controlatéral
+## Bloc Controlatéral
 block_two = expyriment.design.Block(name="Controlatéral")
 display_circle(n, block_two, expected_block_two)
 exp.add_block(block_two)
 
 
 expyriment.control.start()
-# main loop
+# Main loop
 for block in exp.blocks:
     if block.name == 'Ipsilatéral':
         stimuli.TextScreen("Condition Ipsilatérale", instruction1).present()
@@ -88,12 +88,12 @@ for block in exp.blocks:
                 results = 'gauche'
             elif key == 275:
                 results = 'droite'
-            #compare to expected position
+            #Compare to expected position
             if expected_block_one[trial.id] == 1:
                 expected = 'droite'
             else:
                 expected = 'gauche'
-            # save results
+            # Save results
             exp.data.add([block.name, trial.id, expected, results, rt])
     else:
         stimuli.TextScreen("Condition Controlatérale", instruction2).present()
@@ -110,12 +110,12 @@ for block in exp.blocks:
                 results == 'gauche'
             elif key == 275:
                 results = 'droite'
-            #compare to expected position
+            #Compare to expected position
             if expected_block_two[trial.id] == 1:
                 expected = 'droite'
             else:
                 expected = 'gauche'
-            #save results
+            #Save results
             exp.data.add([block.name, trial.id, expected, results, rt])
 
 expyriment.control.end()
