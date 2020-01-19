@@ -96,17 +96,17 @@ stimuli.TextScreen("Condition Controlatérale", instruction2).present()
 exp.keyboard.wait()
 ````
 
-### Création des blocks
+### Création des blocs
 Il y a deux blocs pour les deux conditions "Ipsilatérale" et "Controlatérale". Chaque bloc contient 10 trials. L'ordre de présentation des stimulus (si le cercle apparait à droite ou à gauche selon les trials) est choisi de manière aléatoire grâce à la fonction display_circle.
 
-# Block Ipsilatéral
+#### Bloc Ipsilatéral
 ````
 block_one = expyriment.design.Block(name="Ipsilatéral")
 display_circle(n, block_one)
 exp.add_block(block_one)
 ````
 
-# Block Controlatéral
+#### Bloc Controlatéral
 ````
 block_two = expyriment.design.Block(name="Controlatéral")
 display_circle(n, block_two)
@@ -117,7 +117,7 @@ exp.add_block(block_two)
 ````
 expyriment.control.start()
 ````
-Ici on commence la boucle principale pour afficher les instructions du bloc ipsilatéral ou controlatéral. La croix de fixation est ensuite présentée. Les stimulus préchargés grâce à la fonction display sont affichés. Les temps de réactions, les touches pressées sont enregistrés.
+On commence la boucle principale pour afficher les instructions du bloc ipsilatéral ou controlatéral. La croix de fixation est ensuite présentée. Les stimulus préchargés grâce à la fonction display sont affichés. Les temps de réactions et les touches pressées sont enregistrés.
 ````
 # main loop
 for block in exp.blocks:
@@ -132,7 +132,7 @@ for block in exp.blocks:
                                          expyriment.misc.constants.K_RIGHT])
             fixcross.present(clear = False)
 ````
-Ensuite, j'identifie chaque touche (flèche droite ou gauche du clavier) avec la position correspondante.
+J'identifie ensuite chaque touche (flèche droite ou gauche du clavier) avec la position correspondante.
 ````
 # Identify each key to its corresponding position
             if key == 276:
@@ -185,12 +185,11 @@ Le script complet est visualisable sur RT-Hemispheres-PCBS.py
 
 ## Conclusion
 
-Avant ce cours mon expérience de programmation était égale à zéro. Je n'avais jamais travailler avec python et ne conceptualisais pas ce que c'était. Je ne savais pas utiliser la commande de mon ordinateur et tout le langage de programmation m'a toujours fait peur par la complexité apparente. Les exercices de bases du cours étaient difficiles pour moi et me prenais beaucoup de temps à réaliser.
-Ce cours m'a permis de commencer à appréhender les concepts de programmation et certaines logiques (comme les boucles for par exemple).
-Partant d'un niveau zéro, écrire ce code n'a pas été une chose facile. Il m'a d'abord fallu trouver par quoi commencer. J'ai regardé les scripts des exercices du cours portant sur le module expyriment et les temps de réaction.  Je me suis également inspiré du code d'une ancienne étudiante qui avait codé pour une tâche semblable (https://github.com/OndineS/Projet_PCBS).
-Le site https://docs.expyriment.org/Tutorial.html m'a également aidé à comprendre des codes de base clairs avec lesquels j'ai ensuite travaillé.
+Avant ce cours mon expérience de programmation était égale à zéro. Je n'avais jamais travaillé avec Python et ne conceptualisais pas ce que c'était. Je ne savais pas utiliser la commande de mon ordinateur et tout le langage de programmation m'a toujours fait peur par la complexité apparente. Les exercices de bases du cours étaient difficiles pour moi et me prenais beaucoup de temps à réaliser.
+Ce cours m'a permis de commencer à appréhender les concepts de programmation et certaines logiques (comme les boucles et la création de fonction par exemple).
+Partant d'un niveau zéro, écrire ce code n'a pas été une chose facile. Il m'a d'abord fallu trouver par quoi commencer. J'ai regardé les scripts des exercices du cours portant sur le module expyriment et les temps de réaction.  Je me suis également inspiré du code d'une ancienne étudiante qui avait codé pour une tâche semblable (https://github.com/OndineS/Projet_PCBS). Le site https://docs.expyriment.org/Tutorial.html m'a également aidé à comprendre des codes de base clairs avec lesquels j'ai ensuite travaillé.
 
 En ce qui concerne les retours de l'UE :
 - Je trouve que cette matière est une matière essentielle que j'aurais aimé commencer en licence. Avoir des groupes de niveau pourrait être plus pertinent car il est un peu intimidant de commencer à coder et poser des questions plus que basiques à côté de personne maitrisant déjà la programmation. De plus, pour les confirmés cela ne devaient pas être très stimulant de travailler à côté de personnes comme moi.
 - Plus d'heures dans ce cours pourraient être également bien pour avoir le temps d'assimiler les concepts de bases avant de passer directement à la programmation d'un mini programme, ce qui me semblait insurmontable (sachant que cette année la semaine de remise à niveau était absente).
-- Le cours de data camp est un peu compliqué à gérer en même temps surtout si on apprend R sur data camp et python pendant PCBS. Peut-être serait-il intéressant de les mettre à deux semestres différents ou bien de les lier : cours de PCBS pour apprendre réellement à programmer et le cours de data camp en soutien pour faire des petits exercices basiques (comme une séance de TD en soutien au cours de PCBS).
+- Le cours de data camp est un peu compliqué à gérer en même temps surtout si on apprend R sur data camp et Python pendant PCBS. Peut-être serait-il intéressant de les mettre à deux semestres différents ou bien de les lier : cours de PCBS pour apprendre réellement à programmer et le cours de data camp en soutien pour faire des petits exercices basiques (comme une séance de TD en soutien au cours de PCBS).
